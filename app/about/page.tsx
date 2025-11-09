@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 export const metadata = { title: 'About – MR NIPUN OFC' };
 
@@ -42,6 +43,8 @@ export default function AboutPage() {
           </ul>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }
