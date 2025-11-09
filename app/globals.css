@@ -1,10 +1,10 @@
 /* ===== MODAL (overlay popups) ===== */
 .modal{
-  display:none; position:fixed; inset:0;
+  display:none !important; position:fixed; inset:0;
   background:rgba(0,0,0,.82); z-index:1100;
   align-items:center; justify-content:center; padding:20px;
 }
-.modal.active{ display:flex; }
+.modal.active{ display:flex !important; }
 .modal-card{
   background:linear-gradient(135deg,#1d1d1d,#3d348b);
   width:min(680px,96vw); max-height:92vh; overflow:auto;
@@ -15,18 +15,12 @@
   position:absolute; top:12px; right:12px;
   width:36px; height:36px; border-radius:50%;
   background:rgba(0,0,0,.5); border:1px solid var(--glass-border);
-  color:#fff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer;
+  color:#fff; font-size:20px; cursor:pointer;
 }
-.modal-title{ text-align:center; margin:0 0 14px 0; font-weight:800; }
 
 /* ===== FOOTER ===== */
 .site-footer{
   text-align:center; padding:28px 0; margin-top:40px;
   border-top:1px solid var(--glass-border);
 }
-.site-footer .links{
-  display:flex; justify-content:center; gap:20px; margin-bottom:16px; flex-wrap:wrap;
-}
-.site-footer .links a{ text-decoration:none; opacity:.9 }
-.site-footer .links a:hover{ opacity:1; }
-body{ padding-bottom:0; }  /* no extra bottom space */
+.site-footer .links{ display:none; } /* footer links ඉවත් */
