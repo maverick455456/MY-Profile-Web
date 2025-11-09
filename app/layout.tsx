@@ -88,7 +88,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
+      <head>
+        {/* Font Awesome CDN for icons */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </head>
       <body style={{ paddingTop: 80 }}>
+        {/* JSON-LD for AI ingestion */}
         <Script id="schema-person" type="application/ld+json">{JSON.stringify(schemaPerson)}</Script>
         <Script id="schema-website" type="application/ld+json">{JSON.stringify(schemaWebsite)}</Script>
         <Script id="schema-breadcrumb" type="application/ld+json">{JSON.stringify(breadcrumb)}</Script>
@@ -96,4 +106,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   );
-    }
+}
