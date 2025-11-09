@@ -1,92 +1,70 @@
-import Image from 'next/image';
-import Nav from './components/Nav';
-
 export default function HomePage() {
   return (
-    <main className="container">
-      <Nav />
-
-      {/* HERO */}
+    <>
+      {/* Hero */}
       <section className="hero">
-        <div className="profile-container">
-          <div className="light-ring" />
-          <Image
+        <div className="profile-wrap">
+          <img
+            className="profile-pic"
+            alt="MR NIPUN portrait"
             src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
-            alt="MR NIPUN"
-            width={480}
-            height={480}
-            className="profile-image"
-            priority
-            sizes="(max-width: 768px) 240px, 300px"
           />
+          <h1 className="hero-name">MR NIPUN OFC / TECH-WEB</h1>
+          <p className="hero-sub">Full-Stack Developer · UI/UX Designer · Tech Enthusiast</p>
         </div>
-        <h1 className="hero-title">MR NIPUN OFC / TECH-WEB</h1>
-        <p className="hero-sub">Full-Stack Developer · UI/UX Designer · Tech Enthusiast</p>
       </section>
 
-      {/* PERSONAL INFO */}
-      <section id="info" className="section info-card" aria-labelledby="info-title">
-        <h2 id="info-title" className="info-title">Personal Information</h2>
-        <div className="info-underline" />
+      {/* Personal Info */}
+      <section className="section">
+        <h2 className="section-title">Personal Information</h2>
         <div className="info-list">
-          <div className="info-row"><div className="info-icon"><i className="fa-solid fa-user" /></div><div><strong>Name:</strong> H.M. NIPUN DHANUJAYA</div></div>
-          <div className="info-row"><div className="info-icon"><i className="fa-solid fa-cake-candles" /></div><div><strong>Age:</strong> 18</div></div>
-          <div className="info-row"><div className="info-icon"><i className="fa-solid fa-location-dot" /></div><div><strong>From:</strong> Sri Lanka</div></div>
-          <div className="info-row"><div className="info-icon"><i className="fa-solid fa-phone" /></div>
-            <div><strong>Contact:</strong> <a href="https://wa.me/+94757255903" target="_blank" rel="noopener" style={{color:'#e63946',textDecoration:'none'}}>+94 75 725 5903</a></div>
+          <div className="info-row">
+            <div className="info-ico"><i className="fa-solid fa-user" /></div>
+            <div><strong>Name:</strong> H.M. NIPUN DHANUJAYA</div>
           </div>
-          <div className="info-row"><div className="info-icon"><i className="fa-solid fa-envelope" /></div>
-            <div><strong>Email:</strong> <a href="mailto:mrnipun@techweb.com" style={{color:'#e63946',textDecoration:'none'}}>mrnipun@techweb.com</a></div>
+          <div className="info-row">
+            <div className="info-ico"><i className="fa-solid fa-cake-candles" /></div>
+            <div><strong>Age:</strong> 18</div>
+          </div>
+          <div className="info-row">
+            <div className="info-ico"><i className="fa-solid fa-location-dot" /></div>
+            <div><strong>From:</strong> Sri Lanka</div>
+          </div>
+          <div className="info-row">
+            <div className="info-ico"><i className="fa-solid fa-phone" /></div>
+            <div>
+              <strong>Contact:</strong>{" "}
+              <a href="https://wa.me/+94757255903" target="_blank" rel="noreferrer">
+                +94 75 725 5903
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* PROJECTS */}
-      <section id="projects" className="section">
-        <h2 className="section-title">My Projects</h2>
-        <div className="projects-grid">
-          {[
-            ['MHT Website','A modern responsive site with interactive features.'],
-            ['E-commerce Platform','Full-stack e-commerce with payments and admin dashboard.'],
-            ['IoT Home Automation','Smart-home system using Arduino with mobile control.'],
-          ].map(([t,s]) => (
-            <article key={t} className="card">
-              <h3 className="card-title">{t}</h3><p>{s}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section id="skills" className="section">
+      {/* Skills (teaser) */}
+      <section className="section">
         <h2 className="section-title">My Skills</h2>
         <div className="skills-grid">
           {[
-            ['fab fa-java','Java','Backend Development'],
-            ['fab fa-python','Python','Scripting & Automation'],
-            ['fas fa-server','Web Server','Server Management'],
-            ['fas fa-microchip','Arduino Micro Devices','IoT Development'],
-            ['fab fa-html5','HTML/CSS','Frontend Development'],
-            ['fab fa-react','NextJS','React Framework'],
-            ['fas fa-camera','Photography','Creative Photography'],
-            ['fas fa-film','Animation','Motion Graphics'],
-            ['fas fa-palette','Logo Design','Brand Identity'],
-          ].map(([icon,title,sub]) => (
-            <article key={title as string} className="skill-card">
-              <div className="skill-top">
-                <i className={icon as string} aria-hidden="true" />
-                <h3 className="skill-title">{title}</h3>
-              </div>
-              <p className="skill-sub">{sub}</p>
-            </article>
+            {i:"fa-brands fa-java", t:"Java", s:"Backend Development"},
+            {i:"fa-brands fa-python", t:"Python", s:"Scripting & Automation"},
+            {i:"fa-solid fa-server", t:"Web Server", s:"Server Management"},
+            {i:"fa-solid fa-microchip", t:"Arduino Micro Devices", s:"IoT Development"},
+            {i:"fa-brands fa-html5", t:"HTML/CSS", s:"Frontend Development"},
+            {i:"fa-brands fa-react", t:"NextJS", s:"React Framework"},
+            {i:"fa-solid fa-camera", t:"Photography", s:"Creative Photography"},
+            {i:"fa-solid fa-film", t:"Animation", s:"Motion Graphics"},
+            {i:"fa-solid fa-palette", t:"Logo Design", s:"Brand Identity"},
+          ].map((k,idx)=>(
+            <div className="skill-card" key={idx}>
+              <i className={`skill-ico ${k.i}`} />
+              <div className="skill-title">{k.t}</div>
+              <div className="skill-sub">{k.s}</div>
+            </div>
           ))}
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="site-footer">
-        © {new Date().getFullYear()} MR NIPUN OFC / TECH-WEB. All Rights Reserved.
-      </footer>
-    </main>
+    </>
   );
-                }
+              }
