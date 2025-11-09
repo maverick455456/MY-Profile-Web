@@ -1,17 +1,15 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './globals.css'; // ←මෙ නමම! (ඔයාට style.css නම් කරලා තිබ්බා නම්, මෙහි './style.css' කරන්න)
 
 export const metadata: Metadata = {
   title: 'MR NIPUN OFC / TECH-WEB – Official Site',
-  description:
-    'Official website of H.M. NIPUN DHANUJAYA (MR NIPUN OFC) – Full-Stack Developer, UI/UX Designer and Tech Enthusiast.',
+  description: 'Official website of MR NIPUN OFC.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* Mobile scale + icons */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="stylesheet"
