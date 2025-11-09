@@ -148,32 +148,36 @@ export default function Page() {
 
       {/* ===== MODALS ===== */}
 
-      {/* ABOUT POPUP  */}
-      <div className={`modal ${showAbout ? 'active' : ''}`} onClick={(e)=>{ if(e.target===e.currentTarget) setShowAbout(false); }}>
-        <div className="modal-card">
-          <div className="modal-header">
-            <h3>About Me</h3>
-            <button className="modal-x" onClick={()=>setShowAbout(false)} aria-label="Close">×</button>
-          </div>
+      {/* ABOUT POPUP */}
+<div className={`modal ${showAbout ? 'active' : ''}`} onClick={(e)=>{ if(e.target===e.currentTarget) setShowAbout(false); }}>
+  <div className="modal-card about-card">
+    <div className="modal-header">
+      <h3>About Me</h3>
+      <button className="modal-x" onClick={()=>setShowAbout(false)} aria-label="Close">×</button>
+    </div>
 
-          <div className="about-wrap">
-            <img
-              className="about-photo"
-              src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
-              alt="MR NIPUN"
-            />
-            <div className="about-text">
-              <h4>MR NIPUN</h4>
-              <p className="about-role">Full-Stack Developer &amp; UI/UX Designer</p>
-              <p>
-                I build modern, fast web apps and Arduino-based IoT solutions. 
-                I love clean UI, smooth UX, and scalable backends. 
-                Let’s create real-world products that people enjoy using.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div className="about-wrap">
+      <img
+        className="about-photo"
+        src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
+        alt="MR NIPUN"
+      />
+      <div className="about-text">
+        <h4>MR NIPUN</h4>
+        <p className="about-role">Full-Stack Developer • UI/UX Designer</p>
+        <p>
+          I craft fast, modern web apps and Arduino-based IoT. I focus on clean UI,
+          smooth UX and reliable back-ends with Java / Python / Next.js.
+        </p>
+        <ul className="about-bullets">
+          <li>Founder – TECH-WEB</li>
+          <li>3+ full projects: MHT Website, E-commerce, IoT Home</li>
+          <li>Based in Sri Lanka • Open for collabs</li>
+        </ul>
       </div>
+    </div>
+  </div>
+</div>
 
       {/* SOCIAL POPUP (App grid – like your screenshot) */}
       <div className={`modal ${showSocial ? 'active' : ''}`} onClick={(e)=>{ if(e.target===e.currentTarget) setShowSocial(false); }}>
