@@ -1,5 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "MR NIPUN OFC / TECH-WEB",
@@ -14,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="color-scheme" content="dark" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Font Awesome for icons */}
+        {/* Font Awesome icons */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -22,7 +24,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           referrerPolicy="no-referrer"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Nav />
+        <main className="container">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
