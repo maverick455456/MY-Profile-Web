@@ -195,51 +195,31 @@ section h2 {
   color: #ff4b4b;
 }
 
-/* === SOCIAL SECTION === */
-.social-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  justify-items: center;
+/* Social apps grid */
+.apps-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(150px,1fr)); /* desktop/tablet */
+  gap:14px;
 }
-
-.social-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(60, 60, 80, 0.4);
-  border-radius: 15px;
-  padding: 20px;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  width: 100%;
-  max-width: 160px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px rgba(255, 0, 120, 0.15);
+.app-card{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-decoration:none;color:#fff;height:120px;border-radius:16px;border:1px solid var(--glass-b);
+  background:rgba(255,255,255,.10);transition:transform .15s,filter .15s;
 }
+.app-card i{font-size:32px;color:var(--red);margin-bottom:6px}
+.app-card:hover{transform:translateY(-3px);filter:brightness(1.05)}
 
-.social-card i {
-  font-size: 2rem;
-  color: #ff4b4b;
-  margin-bottom: 10px;
-  transition: 0.3s ease;
-}
-
-.social-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  background: rgba(100, 50, 150, 0.5);
-  box-shadow: 0 0 20px rgba(255, 0, 150, 0.4);
-}
-
-.social-card:hover i {
-  color: #ffb347;
-}
-
-.social-card.single {
-  grid-column: 1 / -1;
-  justify-self: center;
+/* ✅ Mobile: 2 columns + last item centered ONLY on mobile */
+@media (max-width: 900px){
+  .apps-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  /* if count is odd, center the last card */
+  .apps-grid > *:last-child:nth-child(odd){
+    grid-column:1 / -1;
+    justify-self:center;
+    max-width:220px;
+  }
 }
 
 /* === FOOTER === */
