@@ -1,4 +1,5 @@
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 export const metadata = { title: 'Contact – MR NIPUN OFC' };
 
@@ -6,6 +7,7 @@ export default function ContactPage() {
   return (
     <main className="container">
       <Nav />
+
       <section className="section">
         <h1 className="section-title">Contact</h1>
         <ul style={{margin:'6px 0 0 12px', lineHeight:1.9}}>
@@ -14,6 +16,8 @@ export default function ContactPage() {
           <li><strong>Location:</strong> Sri Lanka</li>
         </ul>
       </section>
+
+      <Footer />
     </main>
   );
 }
