@@ -7,7 +7,6 @@ export default function Nav() {
         <div className="topbar-inner">
           <Link href="/" className="brand">MR NIPUN OFC / TECH-WEB</Link>
 
-          {/* desktop links */}
           <nav className="menu" aria-label="Primary">
             <Link className="btn btn-primary" href="/">Home</Link>
             <Link className="btn" href="/about">About</Link>
@@ -17,14 +16,13 @@ export default function Nav() {
             <Link className="btn" href="/contact">Contact</Link>
           </nav>
 
-          {/* hamburger (CSS target opens drawer) */}
+          {/* CSS :target drawer */}
           <a href="#drawer" className="hamburger" aria-label="Open menu">
             <span className="bar" /><span className="bar" /><span className="bar" />
           </a>
         </div>
       </header>
 
-      {/* Drawer / Backdrop */}
       <div id="drawer" className="drawer-wrap" aria-hidden="true">
         <a href="#" className="drawer-backdrop" aria-label="Close menu" />
         <aside className="drawer" role="dialog" aria-label="Menu">
