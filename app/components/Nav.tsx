@@ -4,8 +4,6 @@ import Link from "next/link";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-
-  // close drawer on route change hash clicks
   useEffect(() => {
     const close = () => setOpen(false);
     window.addEventListener("hashchange", close);
@@ -18,7 +16,6 @@ export default function Nav() {
         <div className="topbar-inner">
           <Link href="/" className="brand">MR NIPUN OFC / TECH-WEB</Link>
 
-          {/* desktop links */}
           <nav className="menu" aria-label="Primary">
             <Link className="btn btn-primary" href="/">Home</Link>
             <Link className="btn" href="/about">About</Link>
@@ -28,7 +25,6 @@ export default function Nav() {
             <Link className="btn" href="/contact">Contact</Link>
           </nav>
 
-          {/* hamburger – no visible text, no title */}
           <button
             type="button"
             className={`hamburger ${open ? "active" : ""}`}
@@ -43,29 +39,17 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Backdrop */}
       <div
         className={`drawer-backdrop ${open ? "show" : ""}`}
         onClick={() => setOpen(false)}
         aria-hidden={!open}
       />
 
-      {/* Drawer */}
       <aside className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
         <div className="drawer-header">
-          <div className="drawer-title">
-            <span className="pulse" />
-            <span>Menu</span>
-          </div>
-          <button
-            className="drawer-close"
-            aria-label="Close"
-            onClick={() => setOpen(false)}
-          >
-            ×
-          </button>
+          <div className="drawer-title"><span className="pulse" /> <span>Menu</span></div>
+          <button className="drawer-close" aria-label="Close" onClick={() => setOpen(false)}>×</button>
         </div>
-
         <ul className="navlist">
           <li><Link className="navitem cta" href="/" onClick={() => setOpen(false)}>Home</Link></li>
           <li><Link className="navitem" href="/about" onClick={() => setOpen(false)}>About</Link></li>
@@ -78,4 +62,4 @@ export default function Nav() {
       </aside>
     </>
   );
-            }
+}
