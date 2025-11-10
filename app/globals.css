@@ -1,6 +1,6 @@
-/* =====================================
-   GLOBAL STYLE — MR NIPUN / TECH-WEB
-   ===================================== */
+/* ===============================
+   GLOBAL GLASS STYLE
+   =============================== */
 * {
   margin: 0;
   padding: 0;
@@ -10,21 +10,22 @@
 html,
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #0d0d15, #0b0b13 75%);
+  background: radial-gradient(circle at top left, #0e0e16, #06060a 70%);
   color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-/* Gradient Colors */
 :root {
   --red: #ff416c;
   --blue: #667eea;
   --purple: #764ba2;
-  --glass: rgba(255, 255, 255, 0.08);
+  --glass: rgba(255, 255, 255, 0.07);
 }
 
-/* Scrollbar */
+/* ===============================
+   SCROLLBAR
+   =============================== */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -33,48 +34,48 @@ body {
   border-radius: 6px;
 }
 
-/* ==============================
-   HEADER + NAVIGATION
-   ============================== */
+/* ===============================
+   HEADER + NAVBAR
+   =============================== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 10, 15, 0.6);
+  background: rgba(15, 15, 20, 0.6);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  align-items: center;
+  padding: 14px 20px;
   z-index: 1000;
 }
 
 header h1 {
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   background: linear-gradient(90deg, var(--red), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ==============================
-   HAMBURGER ANIMATION
-   ============================== */
+/* ===============================
+   MENU BUTTON ANIMATION
+   =============================== */
 .hamburger {
-  width: 42px;
-  height: 38px;
+  width: 40px;
+  height: 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 6px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .hamburger:hover {
@@ -86,7 +87,7 @@ header h1 {
   height: 3px;
   border-radius: 3px;
   background: linear-gradient(90deg, var(--red), var(--blue));
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .hamburger.active .bar:nth-child(1) {
@@ -101,17 +102,17 @@ header h1 {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ==============================
-   SLIDE MENU
-   ============================== */
+/* ===============================
+   MENU OVERLAY
+   =============================== */
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.5s ease;
   z-index: 999;
 }
 
@@ -124,22 +125,22 @@ header h1 {
   position: fixed;
   top: 0;
   right: -400px;
-  width: 85vw;
-  max-width: 340px;
+  width: 80vw;
+  max-width: 320px;
   height: 100vh;
   background: linear-gradient(
     135deg,
-    rgba(102, 126, 234, 0.15),
-    rgba(255, 65, 108, 0.15)
+    rgba(255, 65, 108, 0.1),
+    rgba(102, 126, 234, 0.1)
   );
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
-  padding: 90px 25px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 18px;
+  padding: 40px 25px;
   transition: right 0.5s cubic-bezier(0.25, 1, 0.3, 1);
-  z-index: 1000;
 }
 
 .menu.active {
@@ -148,41 +149,41 @@ header h1 {
 
 .menu a {
   display: block;
-  padding: 12px 18px;
+  padding: 14px 18px;
   text-align: center;
   border-radius: 30px;
   color: #fff;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .menu a:hover {
   background: linear-gradient(90deg, var(--red), var(--blue));
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-/* ==============================
+/* ===============================
    PROFILE SECTION
-   ============================== */
+   =============================== */
 .profile {
-  margin-top: 90px;
+  margin-top: 100px;
   text-align: center;
   animation: fadeIn 1s ease;
 }
 
 .profile img {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid transparent;
+  border: 4px solid transparent;
   background: linear-gradient(135deg, var(--red), var(--blue)) border-box;
-  animation: profileBorder 6s linear infinite;
+  animation: rotateBorder 6s linear infinite;
 }
 
-@keyframes profileBorder {
+@keyframes rotateBorder {
   0% {
     transform: rotate(0deg);
   }
@@ -191,18 +192,19 @@ header h1 {
   }
 }
 
-/* ==============================
-   GLASS CARD STYLES
-   ============================== */
+/* ===============================
+   CARD GLASS STYLE
+   =============================== */
 .glass-card {
-  margin: 15px auto;
-  padding: 20px;
-  max-width: 600px;
   background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
   border-radius: 18px;
+  padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px);
-  transition: all 0.3s ease;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  transition: all 0.4s ease;
 }
 
 .glass-card:hover {
@@ -210,27 +212,27 @@ header h1 {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* ==============================
+/* ===============================
    FOOTER
-   ============================== */
+   =============================== */
 footer {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
-  padding: 18px 10px;
-  font-size: 0.9rem;
+  padding: 16px;
   color: #ccc;
-  background: rgba(15, 15, 20, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  background: rgba(20, 20, 25, 0.4);
   backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ==============================
+/* ===============================
    ANIMATIONS
-   ============================== */
+   =============================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -238,19 +240,25 @@ footer {
   }
 }
 
-/* ==============================
-   RESPONSIVE
-   ============================== */
+/* ===============================
+   RESPONSIVE FIX
+   =============================== */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1rem;
   }
+
+  .profile img {
+    width: 130px;
+    height: 130px;
+  }
+
   .glass-card {
     margin: 10px;
     padding: 16px;
   }
-  .profile img {
-    width: 130px;
-    height: 130px;
+
+  .menu {
+    width: 100vw;
   }
    }
