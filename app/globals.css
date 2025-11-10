@@ -1,264 +1,121 @@
 /* ===============================
-   GLOBAL GLASS STYLE
+   GLOBAL GLASS THEME
    =============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at 10% 0%, #141421, #0b0b14 70%);
+  color:#fff; overflow-x:hidden; scroll-behavior:smooth;
 }
+:root{
+  --red:#ff416c; --blue:#667eea; --purple:#764ba2;
+  --glass:rgba(255,255,255,.08); --glass-b:rgba(255,255,255,.15);
+}
+/* scrollbar */
+::-webkit-scrollbar{width:8px} 
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--red),var(--blue));border-radius:6px}
 
-html,
-body {
-  font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #0e0e16, #06060a 70%);
-  color: #fff;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-:root {
-  --red: #ff416c;
-  --blue: #667eea;
-  --purple: #764ba2;
-  --glass: rgba(255, 255, 255, 0.07);
-}
+/* container helper */
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
 
 /* ===============================
-   SCROLLBAR
+   HEADER + BRAND
    =============================== */
-::-webkit-scrollbar {
-  width: 8px;
+header{
+  position:fixed; inset:0 auto auto 0; width:100%; z-index:1000;
+  background:rgba(12,12,18,.65); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--glass-b); padding:12px 0;
 }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--red), var(--blue));
-  border-radius: 6px;
+.brand{font-weight:800; font-size:1.15rem; letter-spacing:.5px;
+  background:linear-gradient(90deg,var(--red),var(--blue));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
 }
+
+/* topbar layout */
+.topbar{display:flex;align-items:center;justify-content:space-between}
 
 /* ===============================
-   HEADER + NAVBAR
+   HAMBURGER (animated)
    =============================== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(15, 15, 20, 0.6);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  z-index: 1000;
+.hamburger{
+  width:44px;height:38px;display:flex;flex-direction:column;gap:6px;
+  justify-content:center;align-items:center;cursor:pointer;
+  border-radius:12px;border:1px solid var(--glass-b);
+  background:rgba(255,255,255,.06); transition:transform .25s ease;
 }
-
-header h1 {
-  font-weight: 800;
-  font-size: 1.2rem;
-  background: linear-gradient(90deg, var(--red), var(--blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.hamburger:hover{transform:scale(1.05)}
+.hamburger .bar{width:24px;height:3px;border-radius:3px;
+  background:linear-gradient(90deg,var(--red),var(--blue));
+  transition:transform .3s ease,opacity .3s ease}
+.hamburger.active .bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active .bar:nth-child(2){opacity:0}
+.hamburger.active .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ===============================
-   MENU BUTTON ANIMATION
+   DRAWER MENU
    =============================== */
-.hamburger {
-  width: 40px;
-  height: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.hamburger:hover {
-  transform: scale(1.1);
-}
-
-.hamburger .bar {
-  width: 22px;
-  height: 3px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--red), var(--blue));
-  transition: all 0.4s ease;
-}
-
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
+.drawer-wrap{position:fixed;inset:0;pointer-events:none;z-index:999}
+.drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;
+  transition:opacity .35s ease}
+.drawer{position:absolute;top:0;right:-400px;height:100vh;
+  width:min(90vw,360px); background:linear-gradient(135deg,rgba(102,126,234,.18),rgba(255,65,108,.18));
+  border-left:1px solid var(--glass-b); backdrop-filter:blur(18px);
+  padding:78px 22px 26px; overflow-y:auto; transition:right .35s cubic-bezier(.25,1,.3,1)}
+.drawer-wrap.active{pointer-events:auto}
+.drawer-wrap.active .drawer-backdrop{opacity:1}
+.drawer-wrap.active .drawer{right:0}
+.drawer h3{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.pulse{width:10px;height:10px;border-radius:50%;background:#a675ff;
+  box-shadow:0 0 0 6px rgba(166,117,255,.25);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(166,117,255,.5)}70%{box-shadow:0 0 0 10px rgba(166,117,255,0)}100%{box-shadow:0 0 0 0 rgba(166,117,255,0)}}
+.navlist{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:8px}
+.navitem{display:block;padding:14px;border-radius:999px;text-align:center;color:#fff;
+  border:1px solid var(--glass-b);background:rgba(255,255,255,.06);transition:all .25s ease}
+.navitem:hover{transform:scale(1.03);background:linear-gradient(90deg,var(--red),var(--blue))}
 
 /* ===============================
-   MENU OVERLAY
+   HERO / PROFILE
    =============================== */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 999;
-}
+main{padding-top:90px}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px; margin-bottom:26px}
+.pfp-wrap{position:relative;width:220px;height:220px}
+.pfp-ring{position:absolute;inset:-8px;border-radius:50%;
+  background:conic-gradient(var(--red),var(--blue),var(--purple),var(--red));
+  filter:blur(.4px);animation:ringspin 6s linear infinite}
+.pfp-ring::after{content:"";position:absolute;inset:6px;border-radius:50%;background:#0e0e16}
+@keyframes ringspin{to{transform:rotate(360deg)}}
+.pfp{position:relative;z-index:2;width:100%;height:100%;object-fit:cover;border-radius:50%;border:4px solid transparent}
 
-.menu-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  right: -400px;
-  width: 80vw;
-  max-width: 320px;
-  height: 100vh;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 65, 108, 0.1),
-    rgba(102, 126, 234, 0.1)
-  );
-  backdrop-filter: blur(15px);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 18px;
-  padding: 40px 25px;
-  transition: right 0.5s cubic-bezier(0.25, 1, 0.3, 1);
-}
-
-.menu.active {
-  right: 0;
-}
-
-.menu a {
-  display: block;
-  padding: 14px 18px;
-  text-align: center;
-  border-radius: 30px;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.menu a:hover {
-  background: linear-gradient(90deg, var(--red), var(--blue));
-  transform: scale(1.05);
-}
+h1.title{font-size:2rem;line-height:1.15;background:linear-gradient(90deg,var(--red),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{opacity:.9}
 
 /* ===============================
-   PROFILE SECTION
+   GLASS SECTIONS
    =============================== */
-.profile {
-  margin-top: 100px;
-  text-align: center;
-  animation: fadeIn 1s ease;
+.section{margin:18px auto; padding:20px; border-radius:18px; border:1px solid var(--glass-b);
+  background:rgba(255,255,255,.07); backdrop-filter:blur(14px)}
+.section h2{font-size:1.5rem;text-align:center;margin-bottom:12px}
+.section .grid{display:grid;gap:16px}
+
+/* projects / skills cards */
+.card{border:1px solid var(--glass-b);background:rgba(255,255,255,.06);border-radius:16px;padding:18px;transition:transform .25s ease, box-shadow .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+
+/* two-column on mobile where needed */
+@media (max-width: 600px){
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .social-grid{grid-template-columns:repeat(2,1fr)}
+  .social-grid .last-center{grid-column:1/-1;justify-self:center;width:100%}
 }
 
-.profile img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid transparent;
-  background: linear-gradient(135deg, var(--red), var(--blue)) border-box;
-  animation: rotateBorder 6s linear infinite;
+/* desktop grids */
+@media (min-width: 601px){
+  .skills-grid{grid-template-columns:repeat(4,1fr)}
+  .social-grid{grid-template-columns:repeat(3,1fr)}
+  .projects-grid{grid-template-columns:repeat(3,1fr)}
 }
 
-@keyframes rotateBorder {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* ===============================
-   CARD GLASS STYLE
-   =============================== */
-.glass-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(15px);
-  border-radius: 18px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 20px auto;
-  max-width: 600px;
-  text-align: center;
-  transition: all 0.4s ease;
-}
-
-.glass-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-/* ===============================
-   FOOTER
-   =============================== */
-footer {
-  margin-top: 40px;
-  text-align: center;
-  padding: 16px;
-  color: #ccc;
-  font-size: 0.9rem;
-  background: rgba(20, 20, 25, 0.4);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* ===============================
-   ANIMATIONS
-   =============================== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===============================
-   RESPONSIVE FIX
-   =============================== */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1rem;
-  }
-
-  .profile img {
-    width: 130px;
-    height: 130px;
-  }
-
-  .glass-card {
-    margin: 10px;
-    padding: 16px;
-  }
-
-  .menu {
-    width: 100vw;
-  }
-   }
+/* footer */
+footer{margin-top:28px;padding:18px 0;text-align:center;color:#d6d6d6;
+  background:rgba(12,12,18,.5);border-top:1px solid var(--glass-b);backdrop-filter:blur(10px)}
