@@ -16,10 +16,10 @@ body{
 }
 a{color:inherit;text-decoration:none}
 
-/* Layout helper: keep content below fixed header; footer at bottom */
+/* keep content below fixed header & footer at bottom */
 .page-wrap{
-  padding-top:84px;                       /* header height + gap */
-  min-height:calc(100vh - 84px - 80px);   /* viewport - header - footer */
+  padding-top:84px;
+  min-height:calc(100vh - 84px - 80px);
 }
 
 /* Container */
@@ -139,10 +139,10 @@ a{color:inherit;text-decoration:none}
 }
 .hero-sub{opacity:.9}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media (max-width:480px){.light-ring{animation-duration:6s}} /* save battery */
+@media (max-width:480px){.light-ring{animation-duration:6s}}
 
 /* =========================
-   GENERIC SECTIONS/CARDS
+   SECTIONS / CARDS
 ========================= */
 .section{
   background:var(--glass); backdrop-filter:blur(8px);
@@ -212,8 +212,6 @@ a{color:inherit;text-decoration:none}
 .cta-row{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
 .cta{border:1px solid var(--glass-b); padding:10px 14px; border-radius:12px; background:rgba(255,255,255,.06); color:#fff}
 .cta.primary{background:linear-gradient(135deg,var(--red),var(--purple))}
-
-/* Responsive stack for about hero */
 @media (max-width:560px){
   .about-hero{grid-template-columns:1fr; text-align:center}
   .facts{margin-left:0}
@@ -246,10 +244,91 @@ a{color:inherit;text-decoration:none}
 }
 
 /* =========================
-   ACCESSIBILITY / PERFORMANCE
+   DRAGON INTRO (CINEMATIC)
 ========================= */
+.intro{
+  position:fixed; inset:0; z-index:20000;
+  display:grid; place-items:center;
+  background: radial-gradient(60% 60% at 50% 40%, rgba(16,10,30,.95), rgba(8,6,20,.96) 60%, rgba(0,0,0,.98));
+  animation:introFadeIn .2s ease;
+}
+@keyframes introFadeIn{from{opacity:0}to{opacity:1}}
+
+.intro-core{
+  position:relative;
+  width:min(94vw,560px);
+  aspect-ratio:1/1;
+  display:grid; place-items:center;
+}
+.intro-ring{
+  position:absolute; inset:0; border-radius:50%;
+  background:conic-gradient(from 0deg, var(--red), var(--purple), #d00000, var(--red));
+  filter:blur(10px) brightness(1.1);
+  animation:ringSpin 2.2s linear infinite;
+  mask:
+    radial-gradient(closest-side, transparent 67%, #000 68%),
+    radial-gradient(farthest-side, #000 63%, transparent 64%);
+  -webkit-mask:
+    radial-gradient(closest-side, transparent 67%, #000 68%),
+    radial-gradient(farthest-side, #000 63%, transparent 64%);
+}
+@keyframes ringSpin{to{transform:rotate(360deg)}}
+
+.intro-dragon{
+  width:68%; height:auto; z-index:2;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.6));
+  animation:dragonPop .6s cubic-bezier(.2,.8,.2,1) both .1s;
+}
+@keyframes dragonPop{
+  0%{transform:scale(.7); opacity:0}
+  60%{transform:scale(1.06); opacity:1}
+  100%{transform:scale(1)}
+}
+.flame{
+  transform-origin: 140px 100px;
+  animation:flameFlicker .9s ease-in-out infinite alternate,
+           flamePulse 1.6s ease-in-out infinite;
+  filter:url(#glow);
+}
+@keyframes flameFlicker{
+  from{transform:scale(0.96) translateX(-1px)}
+  to{transform:scale(1.04) translateX(1px)}
+}
+@keyframes flamePulse{
+  0%,100%{opacity:.85}
+  50%{opacity:1}
+}
+.smk{animation:smoke 1.6s ease-in-out infinite}
+.smk1{animation-delay:.0s}
+.smk2{animation-delay:.25s}
+.smk3{animation-delay:.45s}
+@keyframes smoke{
+  0%{opacity:.0; transform:translate(0,0) scale(.8)}
+  40%{opacity:.65}
+  100%{opacity:0; transform:translate(6px,-8px) scale(1.4)}
+}
+.intro-title{
+  position:absolute; bottom:8%; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  text-align:center;
+}
+.intro-top{
+  font-weight:900; letter-spacing:.06em; font-size:clamp(16px,3.8vw,22px);
+  background:linear-gradient(90deg,var(--red),var(--purple));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow:0 0 16px rgba(230,57,70,.35);
+  animation:titleIn .5s ease .2s both;
+}
+.intro-sub{
+  font-weight:800; font-size:clamp(14px,3.2vw,18px); opacity:.92;
+  color:#e9e9ff;
+  letter-spacing:.22em;
+  animation:titleIn .6s ease .28s both;
+}
+@keyframes titleIn{
+  from{opacity:0; transform:translateY(6px)}
+  to{opacity:1; transform:translateY(0)}
+}
 @media (prefers-reduced-motion: reduce){
-  .light-ring{animation:none}
-  .navitem,.skill-card,.app-card{transition:none}
-  .drawer{transition:none}
-  }
+  .light-ring,.intro-ring,.flame,.smk,.intro-dragon{animation:none}
+   }
