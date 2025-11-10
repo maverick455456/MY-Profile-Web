@@ -1,27 +1,20 @@
 export default function SkillsPage() {
-  const skills = [
-    {i:"fa-brands fa-java", t:"Java", s:"Backend Development"},
-    {i:"fa-brands fa-python", t:"Python", s:"Scripting & Automation"},
-    {i:"fa-solid fa-server", t:"Web Server", s:"Server Management"},
-    {i:"fa-solid fa-microchip", t:"Arduino Micro Devices", s:"IoT Development"},
-    {i:"fa-brands fa-html5", t:"HTML/CSS", s:"Frontend Development"},
-    {i:"fa-brands fa-react", t:"NextJS", s:"React Framework"},
-    {i:"fa-solid fa-camera", t:"Photography", s:"Creative Photography"},
-    {i:"fa-solid fa-film", t:"Animation", s:"Motion Graphics"},
-    {i:"fa-solid fa-palette", t:"Logo Design", s:"Brand Identity"},
-  ];
   return (
-    <section className="section">
-      <h2 className="section-title">My Skills</h2>
-      <div className="skills-grid">
-        {skills.map((k,idx)=>(
-          <div className="skill-card" key={idx}>
-            <i className={`skill-ico ${k.i}`} />
-            <div className="skill-title">{k.t}</div>
-            <div className="skill-sub">{k.s}</div>
-          </div>
-        ))}
-      </div>
-    </section>
+    <main className="container">
+      <section className="hero" />
+      <section className="section">
+        <h2>My Skills</h2>
+        <div className="grid skills-grid">
+          <div className="card"><h3>Java</h3><p>Backend Development</p></div>
+          <div className="card"><h3>Python</h3><p>Scripting & Automation</p></div>
+          <div className="card"><h3>Web Server</h3><p>Server Management</p></div>
+          <div className="card"><h3>Arduino Micro Devices</h3><p>IoT Development</p></div>
+          <div className="card"><h3>HTML/CSS</h3><p>Frontend Development</p></div>
+          <div className="card"><h3>NextJS</h3><p>React Framework</p></div>
+          <div className="card"><h3>Photography</h3><p>Creative Photography</p></div>
+          <div className="card"><h3>Animation</h3><p>Motion Graphics</p></div>
+        </div>
+      </section>
+    </main>
   );
-        }
+}
