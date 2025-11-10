@@ -1,14 +1,15 @@
+import Header from '@/components/Header';
+
+export const metadata = { title: 'Privacy Policy – MR NIPUN OFC' };
+
 export default function PrivacyPage() {
   return (
     <main className="container">
-      <section className="hero" />
+      <Header />
       <section className="section">
-        <h2>Privacy Policy</h2>
-        <div className="grid" style={{gridTemplateColumns:"1fr"}}>
-          <div className="card" style={{textAlign:"left"}}>
-            <p>We collect basic contact details to provide and improve services. We never sell your data. Security measures are applied to protect any information you share.</p>
-          </div>
-        </div>
+        <h1 className="page-title">Privacy Policy</h1>
+        <p>We may collect basic info (name, contact) to provide services. We do not sell your data.</p>
+        <p>Security and privacy are important. For requests please email <a className="link-red" href="mailto:mrnipun@techweb.com">mrnipun@techweb.com</a>.</p>
       </section>
     </main>
   );
