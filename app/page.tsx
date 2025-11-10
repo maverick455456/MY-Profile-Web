@@ -1,13 +1,10 @@
 import Image from 'next/image';
-import Header from '@/components/Header';
 
-export const revalidate = 60; // SSG + revalidate (fast)
+export const revalidate = 60;
 
 export default function HomePage() {
   return (
     <main className="container">
-      <Header />
-
       {/* HERO */}
       <section className="hero">
         <div className="profile-container">
@@ -16,9 +13,7 @@ export default function HomePage() {
             src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
             alt="MR NIPUN"
             className="profile-image"
-            width={480}
-            height={480}
-            priority
+            width={480} height={480} priority
           />
         </div>
         <h1 className="hero-title">MR NIPUN OFC / TECH-WEB</h1>
@@ -58,7 +53,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SKILLS (balanced) */}
+      {/* SKILLS */}
       <section id="skills" className="section">
         <h2 className="section-title">My Skills</h2>
         <div className="skills-grid">
@@ -80,10 +75,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <footer className="site-footer">
-        © {new Date().getFullYear()} MR NIPUN OFC / TECH-WEB. All Rights Reserved.
-      </footer>
     </main>
   );
-      }
+              }
