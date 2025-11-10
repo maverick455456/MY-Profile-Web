@@ -1,8 +1,6 @@
-/* ==============================================
-   MR NIPUN OFC / TECH-WEB — GLOBAL STYLES
-   ============================================== */
-
-/* RESET + BASE */
+/* =====================================
+   GLOBAL STYLE — MR NIPUN / TECH-WEB
+   ===================================== */
 * {
   margin: 0;
   padding: 0;
@@ -11,241 +9,180 @@
 
 html,
 body {
-  height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #0d0d15, #0b0b13 75%);
   color: #fff;
-  background: radial-gradient(circle at top left, #0d0d15, #090914 70%);
-  scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+/* Gradient Colors */
 :root {
-  --red: #e63946;
+  --red: #ff416c;
   --blue: #667eea;
   --purple: #764ba2;
-  --glass-b: rgba(255, 255, 255, 0.1);
+  --glass: rgba(255, 255, 255, 0.08);
 }
 
-/* SCROLLBAR */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--red), var(--purple));
+  background: linear-gradient(var(--red), var(--blue));
   border-radius: 6px;
 }
 
-/* ==============================================
-   HEADER + NAVBAR
-   ============================================== */
+/* ==============================
+   HEADER + NAVIGATION
+   ============================== */
 header {
-  width: 100%;
-  background: rgba(15, 15, 25, 0.75);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-b);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-  padding: 12px 22px;
+  width: 100%;
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 20px;
+  z-index: 1000;
 }
 
 header h1 {
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   background: linear-gradient(90deg, var(--red), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: 1px;
 }
 
-/* ==============================================
-   HAMBURGER BUTTON (animated)
-   ============================================== */
+/* ==============================
+   HAMBURGER ANIMATION
+   ============================== */
 .hamburger {
-  position: relative;
-  width: 46px;
+  width: 42px;
   height: 38px;
-  border-radius: 12px;
-  border: 1px solid var(--glass-b);
-  background: rgba(255, 255, 255, 0.06);
-  overflow: hidden;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
   align-items: center;
-  transition: transform 0.25s ease;
+  gap: 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
 .hamburger:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
+
 .hamburger .bar {
-  width: 24px;
+  width: 22px;
   height: 3px;
-  background: linear-gradient(90deg, var(--red), var(--purple));
   border-radius: 3px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  background: linear-gradient(90deg, var(--red), var(--blue));
+  transition: all 0.3s ease;
 }
+
 .hamburger.active .bar:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
+
 .hamburger.active .bar:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.active .bar:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ==============================================
-   DRAWER MENU (Slide Animation)
-   ============================================== */
-.drawer-wrap {
+/* ==============================
+   SLIDE MENU
+   ============================== */
+.menu-overlay {
   position: fixed;
   inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  opacity: 0;
   pointer-events: none;
-  z-index: 1098;
+  transition: opacity 0.4s ease;
+  z-index: 999;
 }
-.drawer-wrap.active {
+
+.menu-overlay.active {
+  opacity: 1;
   pointer-events: auto;
 }
-.drawer-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-.drawer-wrap.active .drawer-backdrop {
-  opacity: 1;
-}
-.drawer {
-  position: absolute;
+
+.menu {
+  position: fixed;
   top: 0;
   right: -400px;
+  width: 85vw;
+  max-width: 340px;
   height: 100vh;
-  width: min(90vw, 360px);
   background: linear-gradient(
     135deg,
-    rgba(118, 120, 237, 0.25),
-    rgba(230, 57, 70, 0.25)
+    rgba(102, 126, 234, 0.15),
+    rgba(255, 65, 108, 0.15)
   );
-  border-left: 1px solid var(--glass-b);
-  backdrop-filter: blur(18px);
-  padding: 82px 20px 30px;
-  overflow-y: auto;
-  transition: right 0.35s cubic-bezier(0.25, 1, 0.3, 1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 90px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: right 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+  z-index: 1000;
 }
-.drawer-wrap.active .drawer {
+
+.menu.active {
   right: 0;
 }
 
-.drawer-header {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 20px;
-  border-bottom: 1px solid var(--glass-b);
-  background: rgba(0, 0, 0, 0.3);
-}
-.drawer-title {
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.pulse {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #a675ff;
-  box-shadow: 0 0 0 6px rgba(166, 117, 255, 0.25);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(166, 117, 255, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(166, 117, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(166, 117, 255, 0);
-  }
-}
-.drawer-close {
-  margin-left: auto;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--glass-b);
-  font-size: 20px;
-  background: transparent;
+.menu a {
+  display: block;
+  padding: 12px 18px;
+  text-align: center;
+  border-radius: 30px;
   color: #fff;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
 }
 
-/* Menu items */
-.navlist {
-  list-style: none;
-  margin: 76px 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.navitem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
-  border-radius: 999px;
-  border: 1px solid var(--glass-b);
-  color: #fff;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.14),
-    rgba(0, 0, 0, 0.08)
-  );
-  transition: all 0.25s ease;
-}
-.navitem:hover {
-  background: linear-gradient(135deg, var(--red), var(--blue));
+.menu a:hover {
+  background: linear-gradient(90deg, var(--red), var(--blue));
   transform: scale(1.03);
 }
 
-/* ==============================================
+/* ==============================
    PROFILE SECTION
-   ============================================== */
+   ============================== */
 .profile {
   margin-top: 90px;
   text-align: center;
   animation: fadeIn 1s ease;
 }
+
 .profile img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  border: 4px solid transparent;
+  object-fit: cover;
+  border: 3px solid transparent;
   background: linear-gradient(135deg, var(--red), var(--blue)) border-box;
-  animation: spin-border 6s linear infinite;
+  animation: profileBorder 6s linear infinite;
 }
-@keyframes spin-border {
+
+@keyframes profileBorder {
   0% {
     transform: rotate(0deg);
   }
@@ -253,10 +190,47 @@ header h1 {
     transform: rotate(360deg);
   }
 }
+
+/* ==============================
+   GLASS CARD STYLES
+   ============================== */
+.glass-card {
+  margin: 15px auto;
+  padding: 20px;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  padding: 18px 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+  background: rgba(15, 15, 20, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+/* ==============================
+   ANIMATIONS
+   ============================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -264,48 +238,19 @@ header h1 {
   }
 }
 
-/* ==============================================
-   CARDS + GLASS STYLE
-   ============================================== */
-.glass-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--glass-b);
-  border-radius: 18px;
-  padding: 20px;
-  margin: 14px 0;
-  backdrop-filter: blur(18px);
-  transition: all 0.3s ease;
-}
-.glass-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* ==============================================
-   FOOTER
-   ============================================== */
-footer {
-  width: 100%;
-  background: rgba(15, 15, 25, 0.75);
-  border-top: 1px solid var(--glass-b);
-  backdrop-filter: blur(12px);
-  text-align: center;
-  padding: 16px;
-  font-size: 0.85rem;
-  color: #ddd;
-  margin-top: 40px;
-  letter-spacing: 0.5px;
-}
-
-/* ==============================================
+/* ==============================
    RESPONSIVE
-   ============================================== */
+   ============================== */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1rem;
+  }
+  .glass-card {
+    margin: 10px;
+    padding: 16px;
   }
   .profile img {
     width: 130px;
     height: 130px;
   }
-    }
+   }
