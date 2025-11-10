@@ -1,23 +1,21 @@
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-
-export const metadata = { title: 'Contact – MR NIPUN OFC' };
-
 export default function ContactPage() {
   return (
-    <main className="container">
-      <Nav />
-
-      <section className="section">
-        <h1 className="section-title">Contact</h1>
-        <ul style={{margin:'6px 0 0 12px', lineHeight:1.9}}>
-          <li><strong>Email:</strong> <a style={{color:'#e63946',textDecoration:'none'}} href="mailto:mrnipun@techweb.com">mrnipun@techweb.com</a></li>
-          <li><strong>Phone / WhatsApp:</strong> <a style={{color:'#e63946',textDecoration:'none'}} href="https://wa.me/+94757255903" target="_blank" rel="noopener">+94 75 725 5903</a></li>
-          <li><strong>Location:</strong> Sri Lanka</li>
-        </ul>
-      </section>
-
-      <Footer />
-    </main>
+    <section className="section">
+      <h2 className="section-title">Contact</h2>
+      <div className="info-list">
+        <div className="info-row">
+          <div className="info-ico"><i className="fa-solid fa-envelope" /></div>
+          <div><strong>Email:</strong> <a href="mailto:mrnipun@techweb.com">mrnipun@techweb.com</a></div>
+        </div>
+        <div className="info-row">
+          <div className="info-ico"><i className="fa-solid fa-phone" /></div>
+          <div><strong>Phone:</strong> <a href="https://wa.me/+94757255903" target="_blank" rel="noreferrer">+94 75 725 5903</a></div>
+        </div>
+        <div className="info-row">
+          <div className="info-ico"><i className="fa-solid fa-location-dot" /></div>
+          <div><strong>Location:</strong> Sri Lanka</div>
+        </div>
+      </div>
+    </section>
   );
 }
