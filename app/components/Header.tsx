@@ -15,7 +15,6 @@ export default function Header() {
             MR NIPUN OFC / TECH-WEB
           </Link>
 
-          {/* desktop nav */}
           <nav className="menu" aria-label="Main">
             <Link className="btn btn-primary" href="/" prefetch>Home</Link>
             <Link className="btn" href="/about" prefetch>About</Link>
@@ -25,7 +24,6 @@ export default function Header() {
             <Link className="btn" href="/contact" prefetch>Contact</Link>
           </nav>
 
-          {/* hamburger (with animation) */}
           <button
             aria-label="Open menu"
             className={`hamburger ${open ? 'active' : ''}`}
@@ -38,14 +36,12 @@ export default function Header() {
         </div>
       </header>
 
-      {/* mobile drawer */}
       <div className={`drawer-backdrop ${open ? 'show' : ''}`} onClick={close} />
       <nav className={`drawer ${open ? 'open' : ''}`} aria-label="Mobile Menu">
         <div className="drawer-header">
           <div className="drawer-title"><span className="pulse" /> MR NIPUN OFC / TECH-WEB</div>
-          <button className="drawer-close" onClick={close} aria-label="Close">×</button>
+          <button className="drawer-close" onClick={close} aria-label="Close menu">×</button>
         </div>
-
         <ul className="navlist">
           <li><Link className="navitem cta" href="/" onClick={close} prefetch>Home</Link></li>
           <li><Link className="navitem" href="/about" onClick={close} prefetch>About</Link></li>
