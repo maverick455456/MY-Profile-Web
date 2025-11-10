@@ -12,7 +12,6 @@ export default function Header() {
         <div className="container topbar">
           <Link href="/" className="brand">MR NIPUN OFC / TECH-WEB</Link>
 
-          {/* Desktop inline nav */}
           <nav className="navdesk" aria-label="Primary">
             <Link href="/">Home</Link>
             <Link href="/about">About</Link>
@@ -23,7 +22,6 @@ export default function Header() {
             <Link href="/privacy">Privacy</Link>
           </nav>
 
-          {/* Mobile menu button */}
           <button
             aria-label="Open menu"
             className={`hamburger ${open ? "active" : ""}`}
@@ -36,7 +34,6 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Drawer */}
       <div className={`drawer-wrap ${open ? "active" : ""}`}>
         <div className="drawer-backdrop" onClick={close} />
         <nav className="drawer" aria-label="Mobile">
@@ -54,4 +51,4 @@ export default function Header() {
       </div>
     </>
   );
-        }
+}
