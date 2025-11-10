@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import DragonIntro from '@/components/DragonIntro';
 
 export const metadata: Metadata = {
   title: 'MR NIPUN OFC / TECH-WEB',
@@ -21,15 +22,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        {/* === GLOBAL TOP BAR (every page) === */}
+        {/* Opening cinematic (once per session) */}
+        <DragonIntro />
+
+        {/* Global header */}
         <Header />
 
-        {/* push content below the fixed topbar and keep footer at bottom */}
-        <div className="page-wrap">
-          {children}
-        </div>
+        {/* Content area (keeps space under fixed header) */}
+        <div className="page-wrap">{children}</div>
 
-        {/* === GLOBAL FOOTER (every page) === */}
+        {/* Global footer */}
         <Footer />
       </body>
     </html>
