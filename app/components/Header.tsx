@@ -1,54 +1,60 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
+'use client';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
   const close = () => setOpen(false);
 
   return (
     <>
-      <header>
-        <div className="container topbar">
-          <Link href="/" className="brand">MR NIPUN OFC / TECH-WEB</Link>
+      <header className="topbar" role="banner">
+        <div className="topbar-inner">
+          <Link href="/" className="brand" prefetch={true}>
+            MR NIPUN OFC / TECH-WEB
+          </Link>
 
-          <nav className="navdesk" aria-label="Primary">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/projects">Projects</Link>
-            <Link href="/skills">Skills</Link>
-            <Link href="/social">Social</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/privacy">Privacy</Link>
+          <nav className="menu" aria-label="Main">
+            <Link className="btn btn-primary" href="/" prefetch>Home</Link>
+            <Link className="btn" href="/about" prefetch>About</Link>
+            <a className="btn" href="#projects">Projects</a>
+            <a className="btn" href="#skills">Skills</a>
+            <Link className="btn" href="/social" prefetch>Social</Link>
+            <Link className="btn" href="/contact" prefetch>Contact</Link>
           </nav>
 
           <button
             aria-label="Open menu"
-            className={`hamburger ${open ? "active" : ""}`}
-            onClick={() => setOpen(!open)}
+            className={`hamburger ${open ? 'active' : ''}`}
+            onClick={() => setOpen(v => !v)}
           >
-            <span className="bar" />
-            <span className="bar" />
-            <span className="bar" />
+            <span className="bar" /><span className="bar" /><span className="bar" />
           </button>
         </div>
       </header>
 
-      <div className={`drawer-wrap ${open ? "active" : ""}`}>
-        <div className="drawer-backdrop" onClick={close} />
-        <nav className="drawer" aria-label="Mobile">
-          <h3><span className="pulse" /> Menu</h3>
-          <ul className="navlist" onClick={close}>
-            <li><Link className="navitem" href="/">Home</Link></li>
-            <li><Link className="navitem" href="/about">About</Link></li>
-            <li><Link className="navitem" href="/projects">Projects</Link></li>
-            <li><Link className="navitem" href="/skills">Skills</Link></li>
-            <li><Link className="navitem" href="/social">Social</Link></li>
-            <li><Link className="navitem" href="/contact">Contact</Link></li>
-            <li><Link className="navitem" href="/privacy">Privacy</Link></li>
-          </ul>
-        </nav>
-      </div>
+      {/* Drawer */}
+      <div
+        className={`drawer-backdrop ${open ? 'show' : ''}`}
+        onClick={close}
+        aria-hidden={!open}
+      />
+      <nav className={`drawer ${open ? 'open' : ''}`} aria-label="Mobile Menu">
+        <div className="drawer-header">
+          <div className="drawer-title"><span className="pulse" /> Menu</div>
+          <button className="drawer-close" onClick={close} aria-label="Close menu">×</button>
+        </div>
+        <ul className="navlist">
+          <li><Link className="navitem cta" href="/" onClick={close} prefetch>Home</Link></li>
+          <li><Link className="navitem" href="/about" onClick={close} prefetch>About</Link></li>
+          <li><a className="navitem" href="#projects" onClick={close}>Projects</a></li>
+          <li><a className="navitem" href="#skills" onClick={close}>Skills</a></li>
+          <li><Link className="navitem" href="/social" onClick={close} prefetch>Social</Link></li>
+          <li><Link className="navitem" href="/contact" onClick={close} prefetch>Contact</Link></li>
+          <li><Link className="navitem" href="/privacy" onClick={close} prefetch>Privacy</Link></li>
+        </ul>
+      </nav>
     </>
   );
-}
+          }
