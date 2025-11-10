@@ -1,16 +1,18 @@
+import Header from '@/components/Header';
+
+export const metadata = { title: 'Contact – MR NIPUN OFC' };
+
 export default function ContactPage() {
   return (
     <main className="container">
-      <section className="hero" />
+      <Header />
       <section className="section">
-        <h2>Contact</h2>
-        <div className="grid" style={{gridTemplateColumns:"1fr"}}>
-          <div className="card" style={{textAlign:"left"}}>
-            <p><strong>Email:</strong> mrnipun@techweb.com</p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/+94757255903" style={{color:"#ff6b81"}}>+94 75 725 5903</a></p>
-            <p><strong>Location:</strong> Sri Lanka</p>
-          </div>
-        </div>
+        <h1 className="page-title">Contact</h1>
+        <ul className="contact-list">
+          <li><strong>Email:</strong> <a className="link-red" href="mailto:mrnipun@techweb.com">mrnipun@techweb.com</a></li>
+          <li><strong>Phone / WhatsApp:</strong> <a className="link-red" href="https://wa.me/+94757255903" target="_blank" rel="noopener">+94 75 725 5903</a></li>
+          <li><strong>Location:</strong> Sri Lanka</li>
+        </ul>
       </section>
     </main>
   );
