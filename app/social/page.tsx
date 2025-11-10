@@ -1,7 +1,3 @@
-import Header from '@/components/Header';
-
-export const metadata = { title: 'Social – MR NIPUN OFC' };
-
 const links = [
   ['fab fa-whatsapp','WhatsApp Channel','https://whatsapp.com/channel/0029Vb9bLMqGJP8GmAHxUd02/3683'],
   ['fab fa-facebook','Facebook Account','https://www.facebook.com/share/1KKrZV2NM8/'],
@@ -12,10 +8,11 @@ const links = [
   ['fab fa-telegram','Telegram','https://t.me/Profesor9999'],
 ];
 
+export const metadata = { title: 'Social – MR NIPUN OFC' };
+
 export default function SocialPage() {
   return (
     <main className="container">
-      <Header />
       <section className="section">
         <h1 className="page-title">My Social Media</h1>
         <div className="apps-grid">
