@@ -1,21 +1,16 @@
 import Image from 'next/image';
-import Header from '@/components/Header';
 
 export const metadata = { title: 'About – MR NIPUN OFC' };
 
 export default function AboutPage() {
   return (
     <main className="container">
-      <Header />
       <section className="section about-card">
         <div className="about-hero">
           <Image
             src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
             alt="MR NIPUN"
-            width={160}
-            height={160}
-            className="about-photo"
-            priority
+            width={160} height={160} className="about-photo" priority
           />
           <div>
             <h1 className="page-title">MR NIPUN</h1>
@@ -52,4 +47,4 @@ export default function AboutPage() {
       </section>
     </main>
   );
-      }
+}
