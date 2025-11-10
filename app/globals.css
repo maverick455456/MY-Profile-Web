@@ -1,4 +1,4 @@
-/* ===== ROOT / RESET ===== */
+/* ===================== ROOT / RESET ===================== */
 :root{
   --red:#e63946;
   --purple:#7678ed;
@@ -21,11 +21,11 @@ body{
 }
 a{color:inherit;text-decoration:none}
 
-/* ===== LAYOUT ===== */
+/* ===================== LAYOUT ===================== */
 .container{max-width:1200px;margin:0 auto;padding:20px 18px 64px}
 .container{padding-top:96px} /* space for fixed topbar */
 
-/* ===== TOPBAR (GLASS) ===== */
+/* ===================== TOPBAR (GLASS) ===================== */
 .topbar{
   position:fixed;top:0;left:0;width:100%;height:68px;
   background:rgba(20,19,26,.92);
@@ -51,7 +51,7 @@ a{color:inherit;text-decoration:none}
 .btn:hover{background:var(--glass)}
 .btn-primary{background:var(--red);border-color:var(--red);color:#fff}
 
-/* ===== HAMBURGER (CSS only) ===== */
+/* ===================== HAMBURGER (CSS only) ===================== */
 .hamburger{
   display:none;position:relative;width:46px;height:38px;border-radius:12px;
   border:1px solid var(--glass-b);background:rgba(255,255,255,.06);
@@ -66,7 +66,7 @@ a{color:inherit;text-decoration:none}
 .hamburger .bar:nth-child(3){top:27px}
 @media (max-width:900px){.menu{display:none}.hamburger{display:block}}
 
-/* ===== DRAWER (CSS :target) ===== */
+/* ===================== DRAWER (:target) ===================== */
 .drawer-wrap{position:fixed;inset:0;pointer-events:none;z-index:1098}
 .drawer-wrap:target{pointer-events:auto}
 .drawer-backdrop{
@@ -122,14 +122,14 @@ a{color:inherit;text-decoration:none}
 .drawer-wrap:target .navitem:nth-child(6){transition-delay:.22s}
 .drawer-wrap:target .navitem:nth-child(7){transition-delay:.26s}
 
-/* ===== HERO / PROFILE ===== */
+/* ===================== HERO / PROFILE ===================== */
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin:18px 0}
 .profile-wrap{
   background:var(--glass);border:1px solid var(--glass-b);border-radius:22px;
   padding:22px 18px 18px;box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 
-/* --- Animated orbit ring (low-lag CSS only) --- */
+/* Animated orbit ring (low-lag CSS) */
 .profile-orbit{
   position:relative;width:260px;height:260px;display:grid;place-items:center;border-radius:50%;
   will-change:transform;
@@ -156,7 +156,7 @@ a{color:inherit;text-decoration:none}
 }
 .hero-sub{opacity:.9}
 
-/* ===== GENERIC SECTION / CARDS ===== */
+/* ===================== GENERIC SECTION / CARDS ===================== */
 .section{
   background:var(--glass);border:1px solid var(--glass-b);
   border-radius:20px;padding:22px;margin:28px 0;
@@ -167,7 +167,7 @@ a{color:inherit;text-decoration:none}
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
-/* Personal info */
+/* ===================== PERSONAL INFO ===================== */
 .info-list{display:flex;flex-direction:column;gap:12px;margin-top:8px}
 .info-row{display:flex;gap:12px;align-items:center}
 .info-ico{
@@ -177,7 +177,7 @@ a{color:inherit;text-decoration:none}
 .info-row strong{font-weight:800}
 .info-row a{color:#ff7a87}
 
-/* ===== SKILLS GRID (mobile last-center) ===== */
+/* ===================== SKILLS GRID (mobile last-center) ===================== */
 .skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .skill-card{
   background:rgba(255,255,255,.10);border:1px solid var(--glass-b);border-radius:16px;padding:18px;
@@ -195,7 +195,7 @@ a{color:inherit;text-decoration:none}
   }
 }
 
-/* ===== SOCIAL GRID (mobile last-center) ===== */
+/* ===================== SOCIAL GRID (mobile last-center) ===================== */
 .apps-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:14px}
 .app-card{
   display:flex;flex-direction:column;align-items:center;justify-content:center;height:120px;border-radius:16px;
@@ -211,13 +211,51 @@ a{color:inherit;text-decoration:none}
   }
 }
 
-/* ===== FOOTER ===== */
+/* ===================== PROJECTS (safe titles, no overflow) ===================== */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.project-card{
+  background:rgba(255,255,255,.10);
+  border:1px solid var(--glass-b);
+  border-radius:16px;
+  padding:18px;
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform .15s, filter .15s;
+}
+.project-card:hover{ transform:translateY(-4px); filter:brightness(1.05) }
+.project-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;min-width:0}
+.project-dot{
+  width:18px;height:18px;border-radius:999px;border:5px solid var(--red);
+  box-shadow:0 0 0 3px rgba(230,57,70,.25) inset;background:transparent;flex:0 0 auto;
+}
+.project-title{
+  margin:0;font-weight:900;line-height:1.1;
+  font-size:clamp(18px, 4.5vw, 22px);
+  word-break:break-word;
+}
+.project-desc{
+  margin:6px 0 0 0;line-height:1.5;opacity:.95;
+  font-size:clamp(14px, 3.6vw, 16px);
+}
+@media (max-width:1200px){ .projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:900px){
+  .projects-grid{grid-template-columns:1fr}
+  .project-card{min-height:unset}
+}
+
+/* ===================== FOOTER ===================== */
 .site-footer{
   text-align:center;padding:24px 0;margin-top:40px;
   border-top:1px solid var(--glass-b);color:#d8d8e6;
 }
 
-/* ===== ACCESSIBILITY / LOW-MOTION ===== */
+/* ===================== ACCESSIBILITY ===================== */
 @media (prefers-reduced-motion:reduce){
   .drawer,.drawer-backdrop,.hamburger .bar{transition:none}
-}
+                                                                                 }
