@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import DragonIntro from '@/components/DragonIntro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import DragonIntro from '../components/DragonIntro';
 
 export const metadata: Metadata = {
   title: 'MR NIPUN OFC / TECH-WEB',
@@ -22,16 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        {/* Opening cinematic (once per session) */}
         <DragonIntro />
-
-        {/* Global header */}
         <Header />
-
-        {/* Content area (keeps space under fixed header) */}
         <div className="page-wrap">{children}</div>
-
-        {/* Global footer */}
         <Footer />
       </body>
     </html>
