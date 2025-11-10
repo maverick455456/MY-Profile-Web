@@ -15,6 +15,7 @@ export default function Header() {
             MR NIPUN OFC / TECH-WEB
           </Link>
 
+          {/* desktop nav */}
           <nav className="menu" aria-label="Main">
             <Link className="btn btn-primary" href="/" prefetch>Home</Link>
             <Link className="btn" href="/about" prefetch>About</Link>
@@ -24,6 +25,7 @@ export default function Header() {
             <Link className="btn" href="/contact" prefetch>Contact</Link>
           </nav>
 
+          {/* hamburger */}
           <button
             aria-label="Open menu"
             className={`hamburger ${open ? 'active' : ''}`}
@@ -36,6 +38,7 @@ export default function Header() {
         </div>
       </header>
 
+      {/* drawer */}
       <div className={`drawer-backdrop ${open ? 'show' : ''}`} onClick={close} />
       <nav className={`drawer ${open ? 'open' : ''}`} aria-label="Mobile Menu">
         <div className="drawer-header">
@@ -54,4 +57,4 @@ export default function Header() {
       </nav>
     </>
   );
-}
+          }
