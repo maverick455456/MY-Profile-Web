@@ -1,55 +1,56 @@
 'use client';
+
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-
   const close = () => setOpen(false);
 
   return (
     <>
       <header className="topbar" role="banner">
         <div className="topbar-inner">
-          <Link href="/" className="brand" prefetch={true}>
+          <Link href="/" className="brand" prefetch>
             MR NIPUN OFC / TECH-WEB
           </Link>
 
+          {/* desktop nav */}
           <nav className="menu" aria-label="Main">
             <Link className="btn btn-primary" href="/" prefetch>Home</Link>
             <Link className="btn" href="/about" prefetch>About</Link>
-            <a className="btn" href="#projects">Projects</a>
-            <a className="btn" href="#skills">Skills</a>
+            <Link className="btn" href="/#projects">Projects</Link>
+            <Link className="btn" href="/#skills">Skills</Link>
             <Link className="btn" href="/social" prefetch>Social</Link>
             <Link className="btn" href="/contact" prefetch>Contact</Link>
           </nav>
 
+          {/* hamburger (with animation) */}
           <button
             aria-label="Open menu"
             className={`hamburger ${open ? 'active' : ''}`}
             onClick={() => setOpen(v => !v)}
           >
-            <span className="bar" /><span className="bar" /><span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
           </button>
         </div>
       </header>
 
-      {/* Drawer */}
-      <div
-        className={`drawer-backdrop ${open ? 'show' : ''}`}
-        onClick={close}
-        aria-hidden={!open}
-      />
+      {/* mobile drawer */}
+      <div className={`drawer-backdrop ${open ? 'show' : ''}`} onClick={close} />
       <nav className={`drawer ${open ? 'open' : ''}`} aria-label="Mobile Menu">
         <div className="drawer-header">
-          <div className="drawer-title"><span className="pulse" /> Menu</div>
-          <button className="drawer-close" onClick={close} aria-label="Close menu">×</button>
+          <div className="drawer-title"><span className="pulse" /> MR NIPUN OFC / TECH-WEB</div>
+          <button className="drawer-close" onClick={close} aria-label="Close">×</button>
         </div>
+
         <ul className="navlist">
           <li><Link className="navitem cta" href="/" onClick={close} prefetch>Home</Link></li>
           <li><Link className="navitem" href="/about" onClick={close} prefetch>About</Link></li>
-          <li><a className="navitem" href="#projects" onClick={close}>Projects</a></li>
-          <li><a className="navitem" href="#skills" onClick={close}>Skills</a></li>
+          <li><Link className="navitem" href="/#projects" onClick={close}>Projects</Link></li>
+          <li><Link className="navitem" href="/#skills" onClick={close}>Skills</Link></li>
           <li><Link className="navitem" href="/social" onClick={close} prefetch>Social</Link></li>
           <li><Link className="navitem" href="/contact" onClick={close} prefetch>Contact</Link></li>
           <li><Link className="navitem" href="/privacy" onClick={close} prefetch>Privacy</Link></li>
@@ -57,4 +58,4 @@ export default function Header() {
       </nav>
     </>
   );
-          }
+}
