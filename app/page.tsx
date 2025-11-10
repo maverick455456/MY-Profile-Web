@@ -4,11 +4,15 @@ export default function HomePage() {
       {/* Hero */}
       <section className="hero">
         <div className="profile-wrap">
-          <img
-            className="profile-pic"
-            alt="MR NIPUN portrait"
-            src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
-          />
+          {/* === Animated Orbit Ring === */}
+          <div className="profile-orbit">
+            <img
+              className="profile-pic"
+              alt="MR NIPUN portrait"
+              src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
+            />
+          </div>
+
           <h1 className="hero-name">MR NIPUN OFC / TECH-WEB</h1>
           <p className="hero-sub">Full-Stack Developer · UI/UX Designer · Tech Enthusiast</p>
         </div>
@@ -34,15 +38,13 @@ export default function HomePage() {
             <div className="info-ico"><i className="fa-solid fa-phone" /></div>
             <div>
               <strong>Contact:</strong>{" "}
-              <a href="https://wa.me/+94757255903" target="_blank" rel="noreferrer">
-                +94 75 725 5903
-              </a>
+              <a href="https://wa.me/+94757255903" target="_blank" rel="noreferrer">+94 75 725 5903</a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skills (teaser) */}
+      {/* Skills teaser (unchanged) */}
       <section className="section">
         <h2 className="section-title">My Skills</h2>
         <div className="skills-grid">
@@ -67,4 +69,4 @@ export default function HomePage() {
       </section>
     </>
   );
-              }
+      }
