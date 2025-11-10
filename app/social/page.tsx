@@ -1,27 +1,32 @@
-export default function Social() {
-  const Item = ({href, label, icon}:{href:string,label:string,icon:string})=>(
-    <a className="card" href={href} target="_blank" rel="noreferrer">
-      <h3 style={{display:"flex",alignItems:"center",gap:10}}>
-        <span style={{fontSize:"1.2rem"}}>{icon}</span>{label}
-      </h3>
-    </a>
-  );
+import Header from '@/components/Header';
+
+export const metadata = { title: 'Social – MR NIPUN OFC' };
+
+const links = [
+  ['fab fa-whatsapp','WhatsApp Channel','https://whatsapp.com/channel/0029Vb9bLMqGJP8GmAHxUd02/3683'],
+  ['fab fa-facebook','Facebook Account','https://www.facebook.com/share/1KKrZV2NM8/'],
+  ['fab fa-facebook','Facebook Page','https://www.facebook.com/share/17cgrxBQix/'],
+  ['fab fa-tiktok','TikTok Account','https://vm.tiktok.com/ZSHc9tLctfuKo-3zM0Z/'],
+  ['fab fa-youtube','YouTube Channel','https://youtube.com/@mrprofesormht?si=aT8XOonaZEj1YBdo'],
+  ['fab fa-instagram','Instagram','https://www.instagram.com/mr_nipun_ofc/?utm_source=ig_web_button_share_sheet'],
+  ['fab fa-telegram','Telegram','https://t.me/Profesor9999'],
+];
+
+export default function SocialPage() {
   return (
-    <section className="section">
-      <h2>My Social Media</h2>
-      <div className="grid social-grid">
-        <Item href="https://whatsapp.com/channel/0029Vb9bLMqGJP8GmAHxUd02/3683" label="WhatsApp Channel" icon="🟢" />
-        <Item href="https://www.facebook.com/share/1KKrZV2NM8/" label="Facebook Account" icon="🔵" />
-        <Item href="https://www.facebook.com/share/17cgrxBQix/" label="Facebook Page" icon="🔴" />
-        <Item href="https://vm.tiktok.com/ZSHc9tLctfuKo-3zM0Z/" label="TikTok Account" icon="🎵" />
-        <Item href="https://youtube.com/@mrprofesormht?si=aT8XOonaZEj1YBdo" label="YouTube Channel" icon="▶️" />
-        <Item href="https://www.instagram.com/mr_nipun_ofc/" label="Instagram" icon="📸" />
-        <Item href="https://t.me/Profesor9999" label="Telegram" icon="📨" />
-        {/* last item centered on mobile */}
-        <a className="card last-center" href="https://t.me/Profesor9999" target="_blank" rel="noreferrer">
-          <h3>Telegram</h3>
-        </a>
-      </div>
-    </section>
+    <main className="container">
+      <Header />
+      <section className="section">
+        <h1 className="page-title">My Social Media</h1>
+        <div className="apps-grid">
+          {links.map(([icon, text, href]) => (
+            <a key={text} href={href as string} target="_blank" rel="noopener" className="app-card">
+              <i className={icon as string}></i>
+              <span>{text}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
