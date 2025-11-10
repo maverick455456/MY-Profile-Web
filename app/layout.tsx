@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import CuteRobot from '@/components/CuteRobot';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import DragonIntro from '../components/DragonIntro';
@@ -30,3 +31,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
