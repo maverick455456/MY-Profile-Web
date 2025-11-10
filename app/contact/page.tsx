@@ -1,11 +1,8 @@
-import Header from '@/components/Header';
-
 export const metadata = { title: 'Contact – MR NIPUN OFC' };
 
 export default function ContactPage() {
   return (
     <main className="container">
-      <Header />
       <section className="section">
         <h1 className="page-title">Contact</h1>
         <ul className="contact-list">
