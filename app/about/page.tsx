@@ -1,23 +1,25 @@
 export default function AboutPage() {
   return (
-    <section className="section">
-      <h2 className="section-title">About Me</h2>
-      <div className="info-row" style={{marginBottom:12}}>
-        <img
-          src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR%20NIPUN%20OFC.png"
-          alt="MR NIPUN"
-          style={{width:110,height:110,borderRadius:"50%",border:"4px solid #e63946"}}
-        />
-        <div>
-          <h3 style={{margin:"0 0 6px 0",fontWeight:900}}>MR NIPUN</h3>
-          <div style={{opacity:.9,fontWeight:600}}>Full-Stack Developer & Designer</div>
+    <main className="container">
+      <section className="hero" />
+      <section className="section">
+        <h2>About Me</h2>
+        <div className="grid" style={{gridTemplateColumns:"1fr"}}>
+          <div className="card" style={{display:"flex",gap:16,alignItems:"center"}}>
+            <img
+              src="https://raw.githubusercontent.com/maverick455456/ADMINS/refs/heads/main/ADMIN-DP/MR NIPUN OFC.png"
+              alt="MR NIPUN"
+              width={100}
+              height={100}
+              style={{borderRadius:"50%"}}
+            />
+            <div style={{textAlign:"left"}}>
+              <h3>MR NIPUN</h3>
+              <p>Full-Stack Developer & Designer creating modern web applications and Arduino-based IoT. Passionate about clean UI/UX, performance and smooth interactions.</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <p style={{lineHeight:1.7}}>
-        Hello! I&apos;m MR NIPUN, a full-stack developer and designer who loves building
-        modern web apps and Arduino-based IoT solutions. I blend clean code with
-        UI/UX craft to make fast, smooth experiences.
-      </p>
-    </section>
+      </section>
+    </main>
   );
 }
